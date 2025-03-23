@@ -13,3 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameInput = document.getElementById("name");
     const imageUrlInput = document.getElementById("image-url");
 
+// Fetch and display all characters in the character bar
+fetch(baseURL)
+    .then(response => response.json())
+    .then(characters => {
+        characters.forEach(character => displayCharacterName(character));
+    });
+
+function displayCharacterName(character) {
+    const span = document.createElement("span");
+    span.textContent = character.name;
+    span.style.cursor = "pointer";
+    span.addEventListener("click", () => displayCharacterDetails(character));
+    characterBar.appendChild(span);
+}
+
