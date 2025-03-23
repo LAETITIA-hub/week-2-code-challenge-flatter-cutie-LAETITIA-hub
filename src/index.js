@@ -28,3 +28,11 @@ function displayCharacterName(character) {
     characterBar.appendChild(span);
 }
 
+function displayCharacterDetails(character) {
+    nameDisplay.textContent = character.name;
+    imageDisplay.src = character.image;
+    imageDisplay.alt = character.name;
+    voteCount.textContent = character.votes;
+    voteForm.dataset.id = character.id;
+}
+
