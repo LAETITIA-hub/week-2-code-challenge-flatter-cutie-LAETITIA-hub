@@ -44,3 +44,18 @@ voteForm.addEventListener("submit", event => {
     voteCount.textContent = newVotes;
     voteInput.value = "";
 });
+function updateVotesOnServer(id, votes) {
+    fetch(`http://localhost:3000/characters/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ votes: votes }),
+    })
+      .then(response => response.json())
+      .then(updatedCharacter => {
+        console.log('Updated votes on server:', updatedCharacter);
+      })
+      .catch(error => console.error('Error updating votes on server:', error));
+  }
+
