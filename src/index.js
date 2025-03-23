@@ -36,3 +36,11 @@ function displayCharacterDetails(character) {
     voteForm.dataset.id = character.id;
 }
 
+voteForm.addEventListener("submit", event => {
+    event.preventDefault();
+    const votesToAdd = parseInt(voteInput.value) || 0;
+    const currentVotes = parseInt(voteCount.textContent);
+    const newVotes = currentVotes + votesToAdd;
+    voteCount.textContent = newVotes;
+    voteInput.value = "";
+});
