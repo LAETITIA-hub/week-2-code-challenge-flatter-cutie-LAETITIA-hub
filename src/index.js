@@ -58,4 +58,16 @@ function updateVotesOnServer(id, votes) {
       })
       .catch(error => console.error('Error updating votes on server:', error));
   }
+  resetButton.addEventListener("click", () => {
+    voteCount.textContent = "0";
+});
 
+characterForm.addEventListener("submit", event => {
+    event.preventDefault();
+    const newCharacter = {
+        name: nameInput.value,
+        image: imageUrlInput.value,
+        votes: 0
+    };
+
+    
